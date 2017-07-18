@@ -10,6 +10,9 @@ const nextId = () => {
 const actions = {
     submitTodo(text) {
         return {type: types.SUBMIT_TODO, id: nextId(), text};
+    },
+    deleteTodo(id) {
+        return {type: types.DELETE_TODO, id }
     }
 };
 
