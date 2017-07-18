@@ -11,6 +11,8 @@ export function todoReducer(state = todos, action) {
           text: action.text,
         }
       ]
+    case types.DELETE_TODO:
+      return state.filter(todo => todo.id !== action.id)
     default:
       return state;
   }
