@@ -17,7 +17,10 @@ export class AppComponent {
     this.todos = store.select('reducer');
   }
 
-  addTodo() {
-    this.store.dispatch(actions.submitTodo('A todo ex'));
+  addTodo(value) {
+    this.store.dispatch(actions.submitTodo(value));
+  }
+  deleteTodo(value) {
+    this.store.dispatch(actions.deleteTodo(value));
   }
 }

@@ -1,9 +1,10 @@
 <h1>
   {{title}}
 </h1>
+<input type="text" #todoInput>
 <div class="todo-list">
     <li class="todo" *ngFor="let todo of todos | async">
-        {{ todo.text }}
+        {{ todo.text }} <button (click)="deleteTodo(todo.id)">Delete</button>
     </li>
-    <button (click)="addTodo()">Click</button>
+    <button (click)="addTodo(todoInput.value)">Add</button>
 </div>
