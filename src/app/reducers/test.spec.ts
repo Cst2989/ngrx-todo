@@ -20,6 +20,7 @@ describe('Reducers', () => {
         {
           id: 1,
           text: todoText,
+          checked: false
         }
       ]
 
@@ -34,12 +35,34 @@ describe('Reducers', () => {
       };
       const state = [{
           id: 1,
-          text: 'A todo'
+          text: 'A todo',
+          checked: false
       }];
 
       const expectedState = [];
 
       expect(todoReducer(state, action)).toEqual(expectedState)
+  });
+
+  it('Should return new state after check action was dispached', () => {
+      const action = {
+          type: types.CHECK_TODO,
+          id:1
+      };
+      const state = [{
+          id: 1,
+          text: 'A todo',
+          checked: false
+      }];
+
+      const expectedState = [{
+          id:1,
+          text: 'A todo',
+          checked: true
+      }];
+
+      expect(todoReducer(state, action)).toEqual(expectedState);
   })
+
 
 });
